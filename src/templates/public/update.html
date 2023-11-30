@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<form action="/update/produtos/{{produtos.0}}" method="POST">
+  <input
+    type="number"
+    name="codigo"
+    value="{{produtos0}}"
+    placeholder="numero do codigo"
+  />
+  <input
+    type="text"
+    name="nome"
+    value="{{produtos1}}"
+    placeholder="nome do produto"
+  />
+  <input
+    type="number"
+    name="estoque"
+    value="{{produtos2}}"
+    placeholder="quantidade estoque"
+  />
+  <input
+    type="number"
+    name="valor"
+    value="{{produtos3}}"
+    placeholder="valor do produto"
+  />
+  <input
+    type="text"
+    name="id_categoria"
+    value="{{produtos4}}"
+    placeholder="categoria do produto"
+  />
+
+  <button type="submit">atualizar</button>
+</form>
+
+{% endblock %}

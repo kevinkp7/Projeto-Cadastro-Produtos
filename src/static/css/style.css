@@ -1,0 +1,32 @@
+.card {
+  background-color: lightgray;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  background-color: skyblue;
+  color: white;
+  text-align: center;
+}
+
+.card-title {
+  background-color: lightgray;
+}
+
+#content-main {
+  text-align: center;
+  margin-top: 2rem;
+}
+#main{
+  padding-left: 32rem;
+}
+#botao-modal{
+  font-size: 1rem;
+}
+#modalLoginForm{
+  text-align: center;
+}
+
+

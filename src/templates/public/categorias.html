@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+
+<form action="/create/categorias" method="POST">
+  <input type="number" name="id" placeholder="id categoria" />
+  <input type="text" name="nome" placeholder="nome categoria" />
+  <input type="text" name="descricao" placeholder="descricao" />
+
+  <button type="submit">Cadastrar Categoria</button>
+</form>
+
+{% endblock %}

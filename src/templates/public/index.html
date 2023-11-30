@@ -1,0 +1,147 @@
+{% extends "base.html" %} {% block title %} Cadastro Produtos {% endblock %} {%
+block content %}
+
+<div id="main">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-6 d-flex">
+        <div
+          id="content-main"
+          class="justify-content-center align-self-center mx-auto -my-5"
+        >
+          <div class="card">
+            <div class="card-header">
+              <b>CADASTRO PRODUTOS</b>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <form action="/" method="POST" class="p-10">
+                <div class="md-form-row">
+                  <div class="col">
+                    <input
+                      id="inputCodigo"
+                      name="codigo"
+                      type="number"
+                      class="form-control"
+                      required
+                    />
+                    <label for="inputCodigo">ID DO PRODUTO</label>
+                  </div>
+                  <div class="col">
+                    <input
+                      id="inputNome"
+                      name="nome"
+                      type="text"
+                      class="form-control"
+                      required
+                    />
+                    <label for="inputNome">NOME DO PRODUTO</label>
+                  </div>
+                </div>
+                <div class="md-form-row">
+                  <div class="col">
+                    <input
+                      id="inputEstoque"
+                      name="estoque"
+                      type="number"
+                      class="form-control"
+                      required
+                    />
+                    <label for="inputEstoque">QUANTIDADE ESTOQUE</label>
+                  </div>
+                  <div class="col">
+                    <input
+                      id="inputValor"
+                      name="valor"
+                      type="number"
+                      class="form-control"
+                      required
+                    />
+                    <label for="inputValor">PRECO</label>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <select
+                    name="categorias"
+                    class="mdb-select"
+                    id="inputCategoria"
+                  >
+                    <option selected>Selecione Categoria</option>
+                    {% for categorias in categorias %}
+                    <option value="{{categorias.0}}">{{categorias.1}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="md-form" id="button-cadastro">
+                  <button class="btn btn-success btn-block">
+                    Cadastrar<i class="fa-solid fa-square-plus"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="produtos">
+  <div class="container-fluid">
+    <div class="row">
+      {% for produtos in data %}
+      <div class="col-lg4 d-flex">
+        <div
+          id="conteudo-produto"
+          class="justify-content-center align-self-center max-auto my-3"
+        >
+          <div class="card text-center">
+            <div class="card-header">
+              <span>Produto :</span> &nbsp; {{produtos.0}}
+            </div>
+            <div class="card-body lightgray text rounded-bottom">
+              <h4 class="card-title">
+                <span>Nome: </span> &nbsp; {{produtos.1}}
+              </h4>
+              <hr class="hr-light" />
+              <p class="card-text black-text mb4">
+                <span>Estoque :</span> &nbsp; {{produtos.2}} &nbsp;&nbsp;
+                <span>Preco :</span> &nbsp; {{produtos.3}}
+              </p>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button class="btn btn-primary btn-sm" type="button">
+                  <span>ID Categoria :</span> &nbsp; {{produtos.4}}
+                </button>
+                <form action="/delete/produtos/{{produtos.0}}" method="POST">
+                  <button class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+                &nbsp;&nbsp;
+                <a
+                  href="/update/produtos/{{produtos.0}}"
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                >
+                  <i class="fas fa-pen"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="col-lg-12 d-flex">
+        <div
+          id="conteudo-produto"
+          class="justify-conente-center align-self-center mx-auto my-3 text-center"
+        >
+          <h2>NAO EXISTE PRODUTOS CADASTRADOS, PRIMEIRA VEZ: CRIE UMA CATEGORIA</h2>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
