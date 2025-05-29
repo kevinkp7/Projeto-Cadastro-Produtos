@@ -1,1 +1,1 @@
-Projeto em Python e Flask, SQL.
+Projeto em Python, Flask, SQL.
